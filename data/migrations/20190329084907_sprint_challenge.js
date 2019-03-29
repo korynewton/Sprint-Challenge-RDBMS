@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
     return knex.schema.createTable('projects', function(tbl){
         tbl.increments();
@@ -13,7 +12,7 @@ exports.up = function(knex) {
         tbl.string('description', 255).notNullable().unique();
         tbl.string('notes', 255).notNullable().unique();
         tbl.boolean('completed').notNullable();
-        tbl.integer('project_id').unsigned().references('id').inTable('projects')
+        tbl.integer('project_id').unsigned().notNullable().references('id').inTable('projects')
     })
 };
 
